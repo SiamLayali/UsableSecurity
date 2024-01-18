@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UsableSecurity</string>
+    <string name="noaccount" />
+    <string name="login" />
+</resources>

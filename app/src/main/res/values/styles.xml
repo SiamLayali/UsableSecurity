@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="noaccount">
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#242465</item>
+    </style>
+    <string name="noaccount">
+  "You Don't have an Account ? Sing Up"
+</string>
+
+    <style name="login">
+        <item name="android:textSize">32sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#C9242465</item>
+    </style>
+    <string name="login">
+  Login
+</string>
+
+
+
+
+
+
+</resources>
+
+
