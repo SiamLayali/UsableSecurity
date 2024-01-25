@@ -54,7 +54,6 @@ public class Signup extends Activity {
         passwordEditText = findViewById(R.id.rectangle_6);
         signupButton = findViewById(R.id.signupBtn);
         loginTextView = findViewById(R.id.account);
-        progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
 
