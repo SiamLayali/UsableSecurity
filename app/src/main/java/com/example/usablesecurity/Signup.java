@@ -18,6 +18,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Signup extends Activity {
 
@@ -26,14 +30,14 @@ public class Signup extends Activity {
     private TextView loginTextView;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore firestore;
 
     @Override
     public void onStart() {
         super.onStart();
-        // Initialize mAuth
+
         mAuth = FirebaseAuth.getInstance();
 
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             navigateToHome();
@@ -45,7 +49,6 @@ public class Signup extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
-        // Initialize views
         firstNameEditText = findViewById(R.id.rectangle_1);
         lastNameEditText = findViewById(R.id.rectangle_2);
         emailEditText = findViewById(R.id.rectangle_3);
@@ -83,7 +86,6 @@ public class Signup extends Activity {
                 if (progressBar != null) {
                     progressBar.setVisibility(View.VISIBLE);
                 }
-
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(Signup.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -94,6 +96,10 @@ public class Signup extends Activity {
                                 }
 
                                 if (task.isSuccessful()) {
+                                    // User created successfully
+                                    // Save additional information in Firestore
+                                    saveAdditionalUserInfo(firstName, lastName, email, phone, numberOfChildren);
+
                                     Toast.makeText(Signup.this, "Account Created Successfully.", Toast.LENGTH_SHORT).show();
                                     navigateToHome();
                                 } else {
@@ -104,6 +110,8 @@ public class Signup extends Activity {
                         });
             }
         });
+
+
 
         // Set onClickListener for login text
         loginTextView.setOnClickListener(new View.OnClickListener() {
@@ -120,4 +128,36 @@ public class Signup extends Activity {
         startActivity(intent);
         finish();
     }
+    private void saveAdditionalUserInfo(String firstName, String lastName, String email, String phone, String numberOfChildren) {
+        // Create a new user object with the additional information
+        User user = new User(firstName, lastName, email, phone, numberOfChildren);
+
+        // Get the current user's ID
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+
+            // Save the user object in Realtime Database
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("User").child(userId);
+            userRef.setValue(user, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                    // Hide progress bar
+                    if (progressBar != null) {
+                        progressBar.setVisibility(View.GONE);
+                    }
+
+                    if (databaseError == null) {
+                        Toast.makeText(Signup.this, "Account Created Successfully.", Toast.LENGTH_SHORT).show();
+                        navigateToHome();
+                    } else {
+                        Toast.makeText(Signup.this, "Failed to save user information.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+
+
 }

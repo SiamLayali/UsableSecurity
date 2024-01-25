@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#BAFFC7C7">
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="137dp"
+        android:layout_height="129dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/logo"
+        />
+
+    <TextView
+        android:id="@+id/labelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textSize="18sp"
+        android:textColor="#C9242465"
+        android:layout_below="@id/profileImage"
+        android:layout_marginTop="25dp"/>
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/labelName"
+        android:layout_marginTop="8dp"
+        android:textColor="#C9242465"
+        android:background="#3DBD7878"
+        />
+
+    <TextView
+        android:id="@+id/labelPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number:"
+        android:textSize="18sp"
+        android:textColor="#C9242465"
+        android:layout_below="@id/editTextName"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/labelPhoneNumber"
+        android:layout_marginTop="8dp"
+        android:textColor="#C9242465"
+        android:inputType="phone"
+        android:background="#3DBD7878"
+        />
+
+    <TextView
+        android:id="@+id/labelNumberOfChildren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of Children:"
+        android:textSize="18sp"
+        android:textColor="#C9242465"
+        android:layout_below="@id/editTextPhoneNumber"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextNumberOfChildren"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#C9242465"
+        android:layout_below="@id/labelNumberOfChildren"
+        android:layout_marginTop="8dp"
+        android:inputType="number"
+        android:background="#3DBD7878"
+        />
+
+    <TextView
+        android:id="@+id/labelEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textSize="18sp"
+        android:textColor="#C9242465"
+        android:layout_below="@id/editTextNumberOfChildren"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/labelEmail"
+        android:layout_marginTop="8dp"
+        android:textColor="#C9242465"
+        android:inputType="textEmailAddress"
+        android:background="#3DBD7878"
+        />
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

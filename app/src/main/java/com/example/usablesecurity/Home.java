@@ -1,6 +1,7 @@
 package com.example.usablesecurity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ FirebaseAuth auth;
 Button button;
 TextView textView;
 FirebaseUser user;
+RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ FirebaseUser user;
         auth=FirebaseAuth.getInstance();
         button=findViewById(R.id.Logout);
         textView=findViewById(R.id.user_details);
+        recyclerView=findViewById(R.id.recycler);
         user = auth.getCurrentUser();
         if(user== null){
             Intent intent = new Intent(getApplicationContext(),Login.class);

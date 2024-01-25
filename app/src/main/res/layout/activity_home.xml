@@ -6,7 +6,8 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".Home"
+    android:background="#BAFFC7C7">
 
     <TextView
         android:id="@+id/user_details"
@@ -14,11 +15,16 @@
         android:layout_height="wrap_content"
         android:text="Home"
         ></TextView>
-    
+
     <Button
         android:id="@+id/Logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        ></Button>
+        android:text="Logout"></Button>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="InvalidId" />
 </LinearLayout>
