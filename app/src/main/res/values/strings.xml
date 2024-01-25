@@ -2,4 +2,6 @@
     <string name="app_name">UsableSecurity</string>
     <string name="noaccount" />
     <string name="login" />
+    <string name="signup" />
+    <string name="account" />
 </resources>

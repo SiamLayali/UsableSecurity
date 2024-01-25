@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90643681096",
+    "project_id": "usablesecurity-24aa6",
+    "storage_bucket": "usablesecurity-24aa6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90643681096:android:142c8982665c1d8e692d7d",
+        "android_client_info": {
+          "package_name": "com.example.usablesecurity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-AqV4XaTs2cb09PiWKlQWK3BLEvNbOj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

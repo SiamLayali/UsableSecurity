@@ -9,6 +9,11 @@
     >
 
 
+    <ImageView
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="80dp"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/login"
@@ -19,30 +24,44 @@
         android:layout_marginTop="234dp"
         android:gravity="center_horizontal|center_vertical"
         android:lineSpacingExtra="-7sp"
-        android:text="@string/login"
+        android:text="Login"
         android:textAppearance="@style/login" />
 
-    <View
+    <EditText
         android:id="@+id/rectangle_1"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:autofillHints="Email"
+        android:hint="Email"
+        android:textColorHint="#C9242465"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="320dp"
         android:background="#3DBD7878" />
 
-    <View
+    <EditText
         android:id="@+id/rectangle_2"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="50dp"
+        android:hint="Password"
+        android:textColorHint="#C9242465"
         android:layout_alignParentTop="true"
         android:layout_marginTop="392dp"
         android:background="#3DBD7878"
         />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="470dp"
+        android:padding="10dp"
+        android:text="Login"
+        android:textSize="17sp"
+         />
 
     <TextView
         android:id="@+id/noaccount"
@@ -54,8 +73,16 @@
         android:layout_marginTop="543dp"
         android:gravity="center_horizontal|bottom"
         android:lineSpacingExtra="-3sp"
-        android:text="@string/noaccount"
-        android:textAppearance="@style/noaccount" />
+        android:text="You Don't have an Account ? Sing Up"
+        android:textAppearance="@style/noaccount"
+      />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="580dp" />
 
 
 </RelativeLayout>
