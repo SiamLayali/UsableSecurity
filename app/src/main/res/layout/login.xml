@@ -52,12 +52,23 @@
         android:background="#3DBD7878"
         />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="452dp"
+        android:layout_marginLeft="190dp"
+        android:visibility="gone"
+
+
+        />
+
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="142dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="512dp"
         android:padding="10dp"
         android:text="Login"
         android:textSize="17sp"
@@ -70,7 +81,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="99dp"
-        android:layout_marginTop="543dp"
+        android:layout_marginTop="572dp"
         android:gravity="center_horizontal|bottom"
         android:lineSpacingExtra="-3sp"
         android:text="You Don't have an Account ? Sing Up"
@@ -82,7 +93,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="580dp" />
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="600dp" />
 
 
 </RelativeLayout>
