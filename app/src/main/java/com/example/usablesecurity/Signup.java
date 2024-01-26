@@ -124,7 +124,7 @@ public class Signup extends Activity {
     }
 
     private void navigateToHome() {
-        Intent intent = new Intent(Signup.this, Home.class);
+        Intent intent = new Intent(Signup.this, ColorSignUp.class);
         startActivity(intent);
         finish();
     }

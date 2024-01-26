@@ -65,6 +65,7 @@
         android:layout_below="@id/recycler"
         android:layout_marginTop="8dp"
         android:textColor="#C9242465"
+        android:text="Link..."
         android:background="#3DBD7878"
         />
         <ImageView
@@ -79,6 +80,6 @@
         android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add"
+        android:text="Add link"
         />
 </LinearLayout>

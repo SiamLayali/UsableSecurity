@@ -6,8 +6,8 @@
     android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/motion_scene"
-    android:background="#BAFFC7C7">
+    android:background="#BAFFC7C7"
+    tools:ignore="MotionLayoutInvalidSceneFileReference">
 
     <ImageView
         android:id="@+id/splashImage"
@@ -26,5 +26,6 @@
         android:text="save chilld"
         android:layout_marginLeft="180dp"
         tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="350dp" />
+        tools:layout_editor_absoluteY="350dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.motion.widget.MotionLayout>

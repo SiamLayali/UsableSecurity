@@ -4,8 +4,7 @@ public class Links {
     private int img;
     private String name;
 
-    public Links(int img,String name) {
-        this.img = img;
+    public Links(String name) {
         this.name = name;
     }
 
