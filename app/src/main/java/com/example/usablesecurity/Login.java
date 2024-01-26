@@ -103,7 +103,7 @@ public class Login extends Activity {
     }
 
     private void navigateToHome() {
-        Intent intent = new Intent(Login.this, Profile.class);
+        Intent intent = new Intent(Login.this, ColorLogIn.class);
         startActivity(intent);
         finish();
     }

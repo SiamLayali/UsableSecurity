@@ -43,11 +43,6 @@
         android:text="Home"
         ></TextView>
 
-    <Button
-        android:id="@+id/Logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"></Button>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
@@ -82,4 +77,10 @@
         android:layout_height="wrap_content"
         android:text="Add link"
         />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"></Button>
 </LinearLayout>

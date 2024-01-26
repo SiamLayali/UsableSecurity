@@ -43,10 +43,20 @@ public class Home extends AppCompatActivity {
         button = findViewById(R.id.Logout);
         addButton = findViewById(R.id.addButton);
         textView = findViewById(R.id.user_details);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Initialize RecyclerView
+        recyclerView = findViewById(R.id.recycler);
+        if (recyclerView != null) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        } else {
+            // Log an error or handle the case where the RecyclerView is not found
+            Toast.makeText(this, "Error: RecyclerView not found!", Toast.LENGTH_LONG).show();
+            return; // Optional: return from onCreate if RecyclerView is crucial for the activity
+        }
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("links");
-        recyclerView = findViewById(R.id.recycler);
+
         link = new ArrayList<>();
         adapter = new Adapter(link);
         recyclerView.setAdapter(adapter);
@@ -84,41 +94,31 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        fetchDataFromFirebase();
+      //  fetchDataFromFirebase();
     }
 
     void fetchDataFromFirebase() {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Clear the existing list
                 link.clear();
-
-                // Iterate through the dataSnapshot to get links
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Links linkData = snapshot.getValue(Links.class);
                     if (linkData != null) {
                         link.add(linkData);
                     }
                 }
-
-                // Notify the adapter that the data has changed
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle the error, if any
                 Toast.makeText(Home.this, "Error fetching data from Firebase", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void saveLinksToDatabase(ArrayList<Links> linksList) {
-        // Clear existing data in the database node (optional, depends on your requirements)
         databaseReference.removeValue();
-
-        // Iterate through the list and save each link to the database
         for (Links link : linksList) {
             String key = databaseReference.push().getKey();
             if (key != null) {

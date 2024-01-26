@@ -44,6 +44,7 @@ public class ColorLogIn extends AppCompatActivity {
         redImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectedColor= "red";
                 handleColorSelection("Red");
                 navigateToHome();
             }
@@ -52,6 +53,7 @@ public class ColorLogIn extends AppCompatActivity {
         blueImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectedColor="blue";
                 handleColorSelection("Blue");
                 navigateToHome();
             }
@@ -60,6 +62,7 @@ public class ColorLogIn extends AppCompatActivity {
         greenImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectedColor="green";
                 handleColorSelection("Green");
                 navigateToHome();
             }
@@ -68,6 +71,7 @@ public class ColorLogIn extends AppCompatActivity {
         yellowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectedColor="yellow";
                 handleColorSelection("Yellow");
                 navigateToHome();
             }
@@ -87,7 +91,17 @@ public class ColorLogIn extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    selectedColor = dataSnapshot.child("color").getValue(String.class);
+                    String color = dataSnapshot.child("color").getValue(String.class);
+                    if(color==selectedColor){
+                            Intent intent = new Intent(ColorLogIn.this, Home.class);
+                            startActivity(intent);
+                            finish();
+                    }else {
+                        Toast.makeText(ColorLogIn.this, "oppss..! wrong color " , Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ColorLogIn.this, Login.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
             }
 
